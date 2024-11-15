@@ -24,21 +24,21 @@ public class FinishStateMachine {
             case S:
                 if (input == 'T') currentState = State.ONE;
                 else {
-                    currentState = State.S; // stay in S unless we receive 'T'
+                    currentState = State.S;
                 }
                 break;
             case ONE:
                 if (input == 'E') currentState = State.TWO;
-                else if (input == 'T') currentState = State.ONE;
+             else if (input == 'T') currentState = State.ONE;
                 else currentState = State.S;
                 break;
             case TWO:
                 if (input == 'S') currentState = State.THREE;
-                else if (input == 'T') currentState = State.ONE;
+               else if (input == 'T') currentState = State.ONE;
                 else currentState = State.S;
                 break;
             case THREE:
-                if (input == 'T') currentState = State.F;
+            if (input == 'T') currentState = State.F;
                 else currentState = State.S;
                 break;
             case F:
@@ -54,7 +54,7 @@ public class FinishStateMachine {
         currentState = State.S;
     }
 
-    public void run(String input) {
+    public void processString(String input) {
         for (char c : input.toCharArray()) {
             process(c);
         }

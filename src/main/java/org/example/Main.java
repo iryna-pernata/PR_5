@@ -6,13 +6,13 @@ public class Main {
         FinishStateMachine fsm = new FinishStateMachine();
 
         String input1 = "abcTESTabc";
-        fsm.run(input1);
+        fsm.processString(input1);
         System.out.println("Рядок \"" + input1 + "\" -> " + fsm.getCurrentState());
 
         fsm.reset();
 
         String input2 = "abcTES";
-        fsm.run(input2);
+        fsm.processString(input2);
         System.out.println("Рядок \"" + input2 + "\" -> " + fsm.getCurrentState());
 
     }

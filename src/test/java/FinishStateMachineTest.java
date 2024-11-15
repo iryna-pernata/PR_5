@@ -14,11 +14,17 @@ class FiniteStateMachineTest {
             "TEST, F",
             "TSET, ONE",
             "TEESTE, TWO",
-            "TESabcTES, THREE"
+            "TESabcTES, THREE",
+            "abcTESTabc, F",
+            "abcTES, THREE",
+            "TTEST, F",
+            "abcTEabc, S",
+            "TTEESTT, ONE",
+            "TETS, S"
     })
     void FinishStateMachineTest(String input, FinishStateMachine.State expectedState) {
         FinishStateMachine fsm = new FinishStateMachine();
-        fsm.run(input);
+        fsm.processString(input);
         assertEquals(expectedState, fsm.getCurrentState());
     }
 
@@ -32,7 +38,7 @@ class FiniteStateMachineTest {
     })
     void testIsInFinalState(String input, boolean expectedResult) {
         FinishStateMachine fsm = new FinishStateMachine();
-        fsm.run(input);
+        fsm.processString(input);
         assertEquals(expectedResult, fsm.isInFinalState());
-    }
+}
 }
